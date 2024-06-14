@@ -9,7 +9,7 @@ import { Location } from '@angular/common';
   styleUrl: './launch-details.component.css'
 })
 export class LaunchDetailsComponent {
-  launch: any;
+  launch: any = {};
 
   constructor(
     private launchService: LaunchService,
@@ -24,7 +24,7 @@ export class LaunchDetailsComponent {
   getLaunch(): void {
     const flight_num = this.route.snapshot.paramMap.get('flight_num');
     this.launchService.getLaunch(flight_num).subscribe(launch => {
-      this.launch = launch.docs[0];
+      this.launch = launch?.docs;
     });
   }
 

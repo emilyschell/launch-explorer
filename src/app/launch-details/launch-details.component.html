@@ -1,68 +1,68 @@
 <div id="container">
   <button (click)="goBack()">&#8592; Go Back</button>
-  <h1 id="title">Launch Details for Flight {{launch.flight_number}}</h1>
-  <p>{{launch.details}}</p>
-  <a href={{launch.links.patch.large}} target=”_blank”><img src={{launch.links.patch.small}} /></a>
+  <h1 id="title">Launch Details for Flight {{launch?.flight_number}}</h1>
+  <p>{{launch?.details}}</p>
+  <a href={{launch?.links?.patch?.large}} target=”_blank”><img src={{launch?.links?.patch?.small}} /></a>
   <h2>Related Media</h2>
-  <h3 *ngIf="(!launch.links.reddit.campaign || launch.links.reddit.launch || launch.links.reddit.media || launch.links.reddit.recovery) && !(launch.links.flickr.original.length || launch.links.flickr.small.length) && !(launch.links.presskit || launch.links.webcast || launch.links.wikipedia || launch.links.article)">No media to show at this time</h3>
-  <h3 *ngIf="launch.links.reddit.campaign || launch.links.reddit.launch || launch.links.reddit.media || launch.links.reddit.recovery">Reddit</h3>
-  <ul *ngIf="launch.links.reddit.campaign || launch.links.reddit.launch || launch.links.reddit.media || launch.links.reddit.recovery">
-    <li *ngIf="launch.links.reddit.campaign">
-      <a href={{launch.links.reddit.campaign}} target=”_blank”>
+  <h3 *ngIf="(!launch?.links?.reddit?.campaign || launch?.links?.reddit?.launch || launch?.links?.reddit?.media || launch?.links?.reddit?.recovery) && !(launch?.links?.flickr?.original?.length || launch?.links?.flickr?.small?.length) && !(launch?.links?.presskit || launch?.links?.webcast || launch?.links?.wikipedia || launch?.links?.article)">No media to show at this time</h3>
+  <h3 *ngIf="launch?.links?.reddit?.campaign || launch?.links?.reddit?.launch || launch?.links?.reddit?.media || launch?.links?.reddit?.recovery">Reddit</h3>
+  <ul *ngIf="launch?.links?.reddit?.campaign || launch?.links?.reddit?.launch || launch?.links?.reddit?.media || launch?.links?.reddit?.recovery">
+    <li *ngIf="launch?.links?.reddit?.campaign">
+      <a href={{launch?.links?.reddit?.campaign}} target=”_blank”>
         Campaign
       </a>
     </li>
-    <li *ngIf="launch.links.reddit.launch">
-      <a href={{launch.links.reddit.launch}} target=”_blank”>
+    <li *ngIf="launch?.links?.reddit?.launch">
+      <a href={{launch?.links?.reddit?.launch}} target=”_blank”>
         Launch
       </a>
     </li>
-    <li *ngIf="launch.links.reddit.media">
-      <a href={{launch.links.reddit.media}} target=”_blank”>
+    <li *ngIf="launch?.links?.reddit?.media">
+      <a href={{launch?.links?.reddit?.media}} target=”_blank”>
         Media
       </a>
     </li>
-    <li *ngIf="launch.links.reddit.recovery">
-      <a href={{launch.links.reddit.recovery}} target=”_blank”>
+    <li *ngIf="launch?.links?.reddit?.recovery">
+      <a href={{launch?.links?.reddit?.recovery}} target=”_blank”>
         Recovery
       </a>
     </li>
   </ul>
-  <h3 *ngIf="launch.links.flickr.original.length || launch.links.flickr.small.length">Flickr</h3>
-  <ul *ngIf="launch.links.flickr.small">
-    <li *ngFor=" let link of launch.links.flickr.small">
+  <h3 *ngIf="launch?.links?.flickr?.original?.length || launch?.links?.flickr?.small?.length">Flickr</h3>
+  <ul *ngIf="launch?.links?.flickr?.small">
+    <li *ngFor=" let link of launch?.links?.flickr?.small">
       <a href={{link}} target=”_blank”>
         {{link}}
       </a>
     </li>
   </ul>
-  <ul *ngIf="launch.links.flickr.original">
-    <li *ngFor=" let link of launch.links.flickr.original">
+  <ul *ngIf="launch?.links?.flickr?.original">
+    <li *ngFor=" let link of launch?.links?.flickr?.original">
       <a href={{link}} target=”_blank”>
         {{link}}
       </a>
     </li>
   </ul>
-  <h3 *ngIf="launch.links.presskit || launch.links.webcast || launch.links.wikipedia || launch.links.article">Other</h3>
-  <ul *ngIf="launch.links.presskit || launch.links.webcast || launch.links.wikipedia || launch.links.article">
-    <li *ngIf="launch.links.presskit">
-      <a href={{launch.links.presskit}} target=”_blank”>
-        {{launch.links.presskit}}
+  <h3 *ngIf="launch?.links?.presskit || launch?.links?.webcast || launch?.links?.wikipedia || launch?.links?.article">Other</h3>
+  <ul *ngIf="launch?.links?.presskit || launch?.links?.webcast || launch?.links?.wikipedia || launch?.links?.article">
+    <li *ngIf="launch?.links?.presskit">
+      <a href={{launch?.links?.presskit}} target=”_blank”>
+        {{launch?.links?.presskit}}
       </a>
     </li>
-    <li *ngIf="launch.links.webcast">
-      <a href={{launch.links.webcast}} target=”_blank”>
-        {{launch.links.webcast}}
+    <li *ngIf="launch?.links?.webcast">
+      <a href={{launch?.links?.webcast}} target=”_blank”>
+        {{launch?.links?.webcast}}
       </a>
     </li>
-    <li *ngIf="launch.links.wikipedia">
-      <a href={{launch.links.wikipedia}} target=”_blank”>
-        {{launch.links.wikipedia}}
+    <li *ngIf="launch?.links?.wikipedia">
+      <a href={{launch?.links?.wikipedia}} target=”_blank”>
+        {{launch?.links?.wikipedia}}
       </a>
     </li>
-    <li *ngIf="launch.links.article">
-      <a href={{launch.links.article}} target=”_blank”>
-        {{launch.links.article}}
+    <li *ngIf="launch?.links?.article">
+      <a href={{launch?.links?.article}} target=”_blank”>
+        {{launch?.links?.article}}
       </a>
     </li>
   </ul>

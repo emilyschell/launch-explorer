@@ -2,7 +2,7 @@
   <h1 id="title">SpaceX Launches</h1>
   <h3>Select a row to view full details and media coverage.</h3>
   <mat-label class="labels">Sort By</mat-label>
-  <select [(ngModel)]="sortBy" (change)="onSetSortBy()">
+  <select id="selector" [(ngModel)]="sortBy" (change)="onSetSortBy()">
     <option *ngFor="let option of sortByOptions" value={{option.value}}>{{option.name}}</option>
   </select>
   <mat-grid-list class="labels" cols="10" rowHeight="50px">
@@ -22,8 +22,8 @@
     </a>
   </mat-grid-list>
   <div id="page-button-container">
-    <button [disabled]="!hasPreviousPage" (click)="previousPage()">&#8592; Previous Page</button>
+    <button id="prev-button" [disabled]="!hasPreviousPage" (click)="previousPage()">&#8592; Previous Page</button>
     <p class="labels">Page {{page}} of {{totalPages}}</p>
-    <button [disabled]="!hasNextPage" (click)="nextPage()">Next Page &#8594;</button>
+    <button id="next-button" [disabled]="!hasNextPage" (click)="nextPage()">Next Page &#8594;</button>
   </div>
 </div>
