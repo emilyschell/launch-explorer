@@ -4,6 +4,7 @@
   <p>{{launch.details}}</p>
   <a href={{launch.links.patch.large}} target=”_blank”><img src={{launch.links.patch.small}} /></a>
   <h2>Related Media</h2>
+  <h3 *ngIf="(!launch.links.reddit.campaign || launch.links.reddit.launch || launch.links.reddit.media || launch.links.reddit.recovery) && !(launch.links.flickr.original.length || launch.links.flickr.small.length) && !(launch.links.presskit || launch.links.webcast || launch.links.wikipedia || launch.links.article)">No media to show at this time</h3>
   <h3 *ngIf="launch.links.reddit.campaign || launch.links.reddit.launch || launch.links.reddit.media || launch.links.reddit.recovery">Reddit</h3>
   <ul *ngIf="launch.links.reddit.campaign || launch.links.reddit.launch || launch.links.reddit.media || launch.links.reddit.recovery">
     <li *ngIf="launch.links.reddit.campaign">
