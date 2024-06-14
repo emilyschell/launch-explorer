@@ -24,7 +24,7 @@ export class LaunchDetailsComponent {
   getLaunch(): void {
     const flight_num = this.route.snapshot.paramMap.get('flight_num');
     this.launchService.getLaunch(flight_num).subscribe(launch => {
-      this.launch = launch?.docs;
+      this.launch = launch?.docs[0];
     });
   }
 

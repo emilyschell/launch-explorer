@@ -5,13 +5,13 @@
   <select id="selector" [(ngModel)]="sortBy" (change)="onSetSortBy()">
     <option *ngFor="let option of sortByOptions" value={{option.value}}>{{option.name}}</option>
   </select>
-  <mat-grid-list class="labels" cols="10" rowHeight="50px">
+  <mat-grid-list class="labels" cols="10" rowHeight="65px">
     <mat-grid-tile colspan="1">Flight Number</mat-grid-tile>
     <mat-grid-tile colspan="1">Launch Year</mat-grid-tile>
     <mat-grid-tile colspan="3">Rocket Name</mat-grid-tile>
     <mat-grid-tile colspan="5">Details</mat-grid-tile>
   </mat-grid-list>
-  <mat-grid-list id="list-row" *ngFor="let launch of launches" cols="10" rowHeight="55px">
+  <mat-grid-list id="list-row" *ngFor="let launch of launches" cols="10" rowHeight="65px">
     <a routerLink="details/{{launch.flight_number}}">
       <mat-grid-tile colspan="1">{{launch.flight_number}}</mat-grid-tile>
       <mat-grid-tile colspan="1">{{this.getYear(launch.date_utc)}}</mat-grid-tile>
