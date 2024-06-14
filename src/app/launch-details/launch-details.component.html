@@ -43,7 +43,7 @@
       </a>
     </li>
   </ul>
-  <h3 *ngIf="launch?.links?.presskit || launch?.links?.webcast || launch?.links?.wikipedia || launch?.links?.article">Other</h3>
+  <h3 *ngIf="launch?.links?.presskit || launch?.links?.webcast || launch?.links?.wikipedia || launch?.links?.article">Misc. Info</h3>
   <ul *ngIf="launch?.links?.presskit || launch?.links?.webcast || launch?.links?.wikipedia || launch?.links?.article">
     <li *ngIf="launch?.links?.presskit">
       <a href={{launch?.links?.presskit}} target=”_blank”>
