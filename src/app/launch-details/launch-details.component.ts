@@ -27,4 +27,8 @@ export class LaunchDetailsComponent {
       this.launch = launch.docs[0];
     });
   }
+
+  goBack(): void {
+    this.location.back();
+  }
 }
