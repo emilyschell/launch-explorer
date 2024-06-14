@@ -20,6 +20,7 @@ export class AppComponent {
   launches: Array<any> = [];
   page: number = 1;
   limit: number = 10;
+  totalPages: number | null = null;
   hasNextPage: boolean = true;
   hasPreviousPage: boolean = false;
 
@@ -31,11 +32,17 @@ export class AppComponent {
         this.launches = launches.docs;
         this.hasNextPage = launches.hasNextPage;
         this.hasPreviousPage = launches.hasPrevPage;
+        this.totalPages = launches.totalPages;
       });
   }
 
   ngOnInit(): void {
     this.getLaunches();
+  }
+
+  shortenDetails(details?: string) {
+    console.log(details);
+    return details && details.length > 200 ? `${details.slice(0,200)}...` : details;
   }
 
   onSetSortBy(): void {

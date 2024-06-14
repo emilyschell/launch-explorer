@@ -1,9 +1,8 @@
 body {
-  background-color: burlywood;
-  font: 18px Helvetica, Arial, sans-serif;
+  font: 16px Helvetica, Arial, sans-serif;
   overflow-y: scroll;
   height: 100%;
-  padding: 1.5rem;
+  padding: 2rem;
   padding-top: .75rem;
 }
 
@@ -12,25 +11,21 @@ body {
 }
 
 select {
-  background-color: blanchedalmond;
   margin-left: .75rem;
-  padding: .75rem;
+  padding: .5rem;
 }
 
 .labels {
   font-weight: bold;
 }
 
-
-
 #list-row {
-  background-color:blanchedalmond;
   border-bottom: 1px solid black;
   cursor: pointer;
 }
 
 #list-row:hover {
-  background-color:olivedrab;
+  background-color:cornflowerblue;
   color: white;
 }
 
@@ -44,5 +39,6 @@ select {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  padding: 1rem;
   width: 100%;
 }
