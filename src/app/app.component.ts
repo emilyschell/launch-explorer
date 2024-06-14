@@ -3,8 +3,19 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
 })
+
 export class AppComponent {
-  title = 'launch-explorer';
+  sortByOptions = [
+    { value: "name", name: "Name (asc.)" },
+    { value: "-name", name: "Name (desc.)" },
+    { value: "flight_number", name: "Flight # (asc.)" },
+    { value: "-flight_number", name: "Flight # (desc.)" },
+    { value: "date_utc", name: "Year (asc.)" },
+    { value: "-date_utc", name: "Year (desc.)" },
+  ]
+  sortBy: string | null = null;
+  launches = [];
+
 }
