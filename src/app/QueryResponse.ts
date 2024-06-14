@@ -1,5 +1,7 @@
+import { LaunchData } from "./LaunchData";
+
 export interface QueryResponse {
-  docs: Array<any>,
+  docs: Array<LaunchData>,
   totalDocs: number,
   limit: number | null,
   totalPages: number,

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { LaunchService } from '../launch.service';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
+import { LaunchData } from '../LaunchData';
 
 @Component({
   selector: 'app-launch-details',
@@ -9,7 +10,7 @@ import { Location } from '@angular/common';
   styleUrl: './launch-details.component.css'
 })
 export class LaunchDetailsComponent {
-  launch: any = {};
+  launch: LaunchData | undefined;
 
   constructor(
     private launchService: LaunchService,

@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
-import { LaunchService } from './../launch.service';
 import { formatDate } from '@angular/common';
+import { Router } from '@angular/router';
+
+import { LaunchService } from './../launch.service';
+import { LaunchData } from '../LaunchData';
 
 @Component({
   selector: 'app-launches',
@@ -15,14 +18,14 @@ export class LaunchesComponent {
     { value: "-flight_number", name: "Flight # (desc.)" },
   ]
   sortBy: string | null = null;
-  launches: Array<any> = [];
+  launches: Array<LaunchData> = [];
   page: number = 1;
   limit: number = 10;
   totalPages: number | null = null;
   hasNextPage: boolean = true;
   hasPreviousPage: boolean = false;
 
-  constructor(private launchService: LaunchService) { }
+  constructor(private launchService: LaunchService, private router: Router) { }
 
   getLaunches(): void {
     this.launchService.getLaunches(this.page, this.limit, this.sortBy)
@@ -38,7 +41,7 @@ export class LaunchesComponent {
     this.getLaunches();
   }
 
-  shortenDetails(details?: string) {
+  shortenDetails(details?: string | null) {
     return details && details.length > 200 ? `${details.slice(0,200)}...` : details;
   }
 
@@ -47,8 +50,15 @@ export class LaunchesComponent {
     this.getLaunches();
   }
 
-  getYear(date: Date): string {
-    return formatDate(date, "yyyy", "en");
+  handleRowClick(launch: LaunchData) {
+    this.router.navigate(
+      [`/details/${launch.flight_number}`]
+    );
+  }
+
+  getYear(date: string | null): string {
+    if (!date) return "";
+    return formatDate(new Date(date), "yyyy", "en");
   }
 
   nextPage(): void {

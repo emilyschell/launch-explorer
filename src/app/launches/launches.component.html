@@ -11,15 +11,13 @@
     <mat-grid-tile colspan="3">Rocket Name</mat-grid-tile>
     <mat-grid-tile colspan="5">Details</mat-grid-tile>
   </mat-grid-list>
-  <mat-grid-list id="list-row" *ngFor="let launch of launches" cols="10" rowHeight="65px">
-    <a routerLink="details/{{launch.flight_number}}">
-      <mat-grid-tile colspan="1">{{launch.flight_number}}</mat-grid-tile>
-      <mat-grid-tile colspan="1">{{this.getYear(launch.date_utc)}}</mat-grid-tile>
-      <mat-grid-tile colspan="3">{{launch.name}}</mat-grid-tile>
-      <mat-grid-tile colspan="5">
-        <span id="deets">{{shortenDetails(launch.details)}}</span>
-      </mat-grid-tile>
-    </a>
+  <mat-grid-list id="list-row" *ngFor="let launch of launches" cols="10" rowHeight="65px" (click)="handleRowClick(launch)">
+    <mat-grid-tile colspan="1">{{launch.flight_number}}</mat-grid-tile>
+    <mat-grid-tile colspan="1">{{this.getYear(launch.date_utc)}}</mat-grid-tile>
+    <mat-grid-tile colspan="3">{{launch.name}}</mat-grid-tile>
+    <mat-grid-tile colspan="5">
+      <span id="deets">{{shortenDetails(launch.details)}}</span>
+    </mat-grid-tile>
   </mat-grid-list>
   <div id="page-button-container">
     <button id="prev-button" [disabled]="!hasPreviousPage" (click)="previousPage()">&#8592; Previous Page</button>

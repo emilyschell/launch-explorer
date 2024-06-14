@@ -1,12 +1,8 @@
-export const mockLaunch = {
+import { QueryResponse } from "./QueryResponse";
+
+export const mockLaunch: QueryResponse = {
   docs: [
     {
-      fairings: {
-        reused: false,
-        recovery_attempt: false,
-        recovered: false,
-        ships: []
-      },
       links: {
         patch: {
           small: "https://images2.imgbox.com/94/f2/NN6Ph45r_o.png",
@@ -29,7 +25,7 @@ export const mockLaunch = {
         wikipedia: "https://en.wikipedia.org/wiki/DemoSat"
       },
       details: "Engine failure at 33 seconds and loss of vehicle",
-      flight_number: 1,
+      flight_number: "1",
       name: "FalconSat",
       date_utc: "2006-03-24T22:30:00.000Z",
     },
