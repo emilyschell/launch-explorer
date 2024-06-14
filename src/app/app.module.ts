@@ -7,10 +7,14 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { provideHttpClient, withFetch } from '@angular/common/http';
+import { LaunchDetailsComponent } from './launch-details/launch-details.component';
+import { LaunchesComponent } from './launches/launches.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LaunchDetailsComponent,
+    LaunchesComponent
   ],
   imports: [
     BrowserModule,

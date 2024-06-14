@@ -1,0 +1,29 @@
+<body>
+  <h1 id="title">SpaceX Launches</h1>
+  <h3>Select a row to view full details and media coverage.</h3>
+  <mat-label class="labels">Sort By</mat-label>
+  <select [(ngModel)]="sortBy" (change)="onSetSortBy()">
+    <option *ngFor="let option of sortByOptions" value={{option.value}}>{{option.name}}</option>
+  </select>
+  <mat-grid-list class="labels" cols="10" rowHeight="50px">
+    <mat-grid-tile colspan="1">Flight Number</mat-grid-tile>
+    <mat-grid-tile colspan="1">Launch Year</mat-grid-tile>
+    <mat-grid-tile colspan="3">Rocket Name</mat-grid-tile>
+    <mat-grid-tile colspan="5">Details</mat-grid-tile>
+  </mat-grid-list>
+  <mat-grid-list id="list-row" *ngFor="let launch of launches" cols="10" rowHeight="55px" gutterSize="0" (click)="handleClick()">
+    <a routerLink="details/{{launch.flight_number}}">
+      <mat-grid-tile colspan="1">{{launch.flight_number}}</mat-grid-tile>
+      <mat-grid-tile colspan="1">{{this.getYear(launch.date_utc)}}</mat-grid-tile>
+      <mat-grid-tile colspan="3">{{launch.name}}</mat-grid-tile>
+      <mat-grid-tile colspan="5">
+        <span id="deets">{{shortenDetails(launch.details)}}</span>
+      </mat-grid-tile>
+    </a>
+  </mat-grid-list>
+  <div id="page-button-container">
+    <button [disabled]="!hasPreviousPage" (click)="previousPage()">&#8592; Previous Page</button>
+    <p class="labels">Page {{page}} of {{totalPages}}</p>
+    <button [disabled]="!hasNextPage" (click)="nextPage()">Next Page &#8594;</button>
+  </div>
+</body>

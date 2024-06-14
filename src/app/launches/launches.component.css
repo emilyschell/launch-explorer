@@ -1,0 +1,51 @@
+body {
+  font: 16px Helvetica, Arial, sans-serif;
+  overflow-y: scroll;
+  height: 100%;
+  padding: 2rem;
+  padding-top: .75rem;
+}
+
+#title {
+  font-family: 'Papyrus';
+}
+
+select {
+  margin-left: .75rem;
+  padding: .5rem;
+}
+
+.labels {
+  font-weight: bold;
+}
+
+a {
+  color: black;
+}
+
+a:hover {
+  color: white;
+}
+
+#list-row {
+  border-bottom: 1px solid black;
+  cursor: pointer;
+}
+
+#list-row:hover {
+  background-color: cornflowerblue;
+}
+
+#deets {
+  align-items: flex-start;
+  display: flex;
+  width: 100%;
+}
+
+#page-button-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 1rem;
+  width: 100%;
+}
