@@ -2,8 +2,8 @@
   <button (click)="goBack()">&#8592; Go Back</button>
   <h1 id="title">Launch Details for Flight {{launch.flight_number}}</h1>
   <p>{{launch.details}}</p>
-  <a href={{launch.links.patch.large}}><img src={{launch.links.patch.small}} target=”_blank” /></a>
-  <h2>Media Coverage</h2>
+  <a href={{launch.links.patch.large}} target=”_blank”><img src={{launch.links.patch.small}} /></a>
+  <h2>Related Media</h2>
   <h3 *ngIf="launch.links.reddit.campaign || launch.links.reddit.launch || launch.links.reddit.media || launch.links.reddit.recovery">Reddit</h3>
   <ul *ngIf="launch.links.reddit.campaign || launch.links.reddit.launch || launch.links.reddit.media || launch.links.reddit.recovery">
     <li *ngIf="launch.links.reddit.campaign">

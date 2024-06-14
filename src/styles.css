@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
+* {
+  box-sizing: border-box;
+}
+
 html, body { 
   height: 100%; 
 }
@@ -18,4 +22,13 @@ body {
 
 #title {
   font: 44px 'Copperplate';
+}
+
+button {
+  background-color: cornflowerblue;
+  border-radius: .5rem;
+  color: white;
+  cursor: pointer;
+  font: 16px "Montserrat", sans-serif;
+  padding: .5rem;
 }
