@@ -39,17 +39,12 @@ export class LaunchesComponent {
   }
 
   shortenDetails(details?: string) {
-    console.log(details);
     return details && details.length > 200 ? `${details.slice(0,200)}...` : details;
   }
 
   onSetSortBy(): void {
     this.page = 1;
     this.getLaunches();
-  }
-
-  handleClick(): void {
-    console.log('click.');
   }
 
   getYear(date: Date): string {

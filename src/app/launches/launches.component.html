@@ -11,7 +11,7 @@
     <mat-grid-tile colspan="3">Rocket Name</mat-grid-tile>
     <mat-grid-tile colspan="5">Details</mat-grid-tile>
   </mat-grid-list>
-  <mat-grid-list id="list-row" *ngFor="let launch of launches" cols="10" rowHeight="55px" gutterSize="0" (click)="handleClick()">
+  <mat-grid-list id="list-row" *ngFor="let launch of launches" cols="10" rowHeight="55px">
     <a routerLink="details/{{launch.flight_number}}">
       <mat-grid-tile colspan="1">{{launch.flight_number}}</mat-grid-tile>
       <mat-grid-tile colspan="1">{{this.getYear(launch.date_utc)}}</mat-grid-tile>

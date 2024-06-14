@@ -22,8 +22,18 @@ export class LaunchService {
       }
     }
     return this.http.post<QueryResponse>(this.queryUrl, requestBody).pipe(
-      // TODO: make dummy data to return here for avoiding errors
-      catchError(this.handleError<QueryResponse>('getLaunches'))
+      catchError(this.handleError<QueryResponse>('getLaunches', {} as QueryResponse))
+    );
+  }
+
+  getLaunch<T>(flight_num: string | null): Observable<QueryResponse> {
+    if (!flight_num) return of({} as QueryResponse);
+    let requestBody = {
+      "query": { "flight_number": flight_num }
+    }
+
+    return this.http.post<QueryResponse>(this.queryUrl, requestBody).pipe(
+      catchError(this.handleError<QueryResponse>('getLaunch', {} as QueryResponse))
     );
   }
 
