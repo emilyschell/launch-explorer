@@ -27,6 +27,7 @@ body {
 button {
   background-color: cornflowerblue;
   border-radius: .5rem;
+  border: 1px solid #ccc;
   color: white;
   cursor: pointer;
   font: 16px "Montserrat", sans-serif;

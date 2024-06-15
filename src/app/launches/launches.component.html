@@ -5,20 +5,26 @@
   <select id="selector" [(ngModel)]="sortBy" (change)="onSetSortBy()">
     <option *ngFor="let option of sortByOptions" value={{option.value}}>{{option.name}}</option>
   </select>
-  <mat-grid-list class="labels" cols="10" rowHeight="65px">
-    <mat-grid-tile colspan="1">Flight Number</mat-grid-tile>
-    <mat-grid-tile colspan="1">Launch Year</mat-grid-tile>
-    <mat-grid-tile colspan="3">Rocket Name</mat-grid-tile>
-    <mat-grid-tile colspan="5">Details</mat-grid-tile>
-  </mat-grid-list>
-  <mat-grid-list id="list-row" *ngFor="let launch of launches" cols="10" rowHeight="65px" (click)="handleRowClick(launch)">
-    <mat-grid-tile colspan="1">{{launch.flight_number}}</mat-grid-tile>
-    <mat-grid-tile colspan="1">{{this.getYear(launch.date_utc)}}</mat-grid-tile>
-    <mat-grid-tile colspan="3">{{launch.name}}</mat-grid-tile>
-    <mat-grid-tile colspan="5">
-      <span id="deets">{{shortenDetails(launch.details)}}</span>
-    </mat-grid-tile>
-  </mat-grid-list>
+  <table #launchesTable mat-table [dataSource]="launches">
+    <ng-container matColumnDef="flight_number">
+      <th mat-header-cell *matHeaderCellDef> Flight Number </th>
+      <td mat-cell *matCellDef="let launch"> {{launch.flight_number}} </td>
+    </ng-container>
+    <ng-container matColumnDef="year">
+      <th mat-header-cell *matHeaderCellDef> Year </th>
+      <td mat-cell *matCellDef="let launch"> {{getYear(launch.date_utc)}} </td>
+    </ng-container>
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let launch"> {{launch.name}} </td>
+    </ng-container>
+    <ng-container matColumnDef="details">
+      <th mat-header-cell *matHeaderCellDef> Details </th>
+      <td mat-cell *matCellDef="let launch"> {{shortenDetails(launch.details)}} </td>
+    </ng-container>
+    <tr mat-header-row id="header-row" *matHeaderRowDef="columnsToDisplay"></tr>
+    <tr mat-row id="table-row" *matRowDef="let row; columns: columnsToDisplay" (click)="handleRowClick(row)"></tr>
+  </table>
   <div id="page-button-container">
     <button id="prev-button" [disabled]="!hasPreviousPage" (click)="previousPage()">&#8592; Previous Page</button>
     <p class="labels">Page {{page}} of {{totalPages}}</p>

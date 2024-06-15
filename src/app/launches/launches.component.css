@@ -7,14 +7,32 @@ select {
   font-weight: bold;
 }
 
-#list-row {
-  border-bottom: 1px solid black;
-  cursor: pointer;
+table {
+  border-radius: 1rem;
+  margin-right: 1rem;
+  margin-top: 1rem;
 }
 
-#list-row:hover {
+#table-row {
+  background-color: white;
+  border-bottom: 1px solid black;
+  color: black;
+  cursor: pointer;
+  font-family: "Montserrat", sans-serif;
+}
+
+#table-row:hover {
   background-color: cornflowerblue;
   color: white;
+}
+
+#header-row {
+  font: 1rem "Montserrat", sans-serif;
+  font-weight: bold;
+}
+
+.mat-column-flight_number {
+  text-align: center;
 }
 
 #deets {

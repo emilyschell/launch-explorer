@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { formatDate } from '@angular/common';
 import { Router } from '@angular/router';
+import { MatTable } from '@angular/material/table';
 
 import { LaunchService } from './../launch.service';
 import { LaunchData } from '../LaunchData';
@@ -8,7 +9,7 @@ import { LaunchData } from '../LaunchData';
 @Component({
   selector: 'app-launches',
   templateUrl: './launches.component.html',
-  styleUrl: './launches.component.css'
+  styleUrl: './launches.component.css',
 })
 export class LaunchesComponent {
   sortByOptions = [
@@ -24,6 +25,8 @@ export class LaunchesComponent {
   totalPages: number | null = null;
   hasNextPage: boolean = true;
   hasPreviousPage: boolean = false;
+  @ViewChild(MatTable) launchesTable!: MatTable<LaunchData>;
+  columnsToDisplay = ['flight_number', 'year', 'name', 'details'];
 
   constructor(private launchService: LaunchService, private router: Router) { }
 
@@ -35,9 +38,10 @@ export class LaunchesComponent {
         this.hasPreviousPage = launches.hasPrevPage;
         this.totalPages = launches.totalPages;
       });
+    this.launchesTable.renderRows();
   }
 
-  ngOnInit(): void {
+  ngAfterViewInit(): void {
     this.getLaunches();
   }
 
@@ -50,9 +54,9 @@ export class LaunchesComponent {
     this.getLaunches();
   }
 
-  handleRowClick(launch: LaunchData) {
+  handleRowClick(row: LaunchData) {
     this.router.navigate(
-      [`/details/${launch.flight_number}`]
+      [`/details/${row.flight_number}`]
     );
   }
 

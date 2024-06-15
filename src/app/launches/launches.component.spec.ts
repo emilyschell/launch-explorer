@@ -5,6 +5,7 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 import { CUSTOM_ELEMENTS_SCHEMA, DebugElement } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { By } from '@angular/platform-browser';
+import { MatTableModule } from '@angular/material/table';
 
 describe('LaunchesComponent', () => {
   let component: LaunchesComponent;
@@ -16,7 +17,7 @@ describe('LaunchesComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [LaunchesComponent],
-      imports: [HttpClientTestingModule, FormsModule],
+      imports: [HttpClientTestingModule, FormsModule, MatTableModule],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })
     .compileComponents();
