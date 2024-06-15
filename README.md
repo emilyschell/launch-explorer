@@ -17,6 +17,7 @@ _Code Improvements_
 _Features_
 
 - Make responsive for mobile screen sizes
+- Add loading indicators during network calls
 - Add page num and sort by query params to URL to retain settings when navigating back
 - Add text input to jump to specific page
 - Allow customized number of records returned per page
